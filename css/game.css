@@ -1,5 +1,5 @@
 .racing-track {
-  width: 100%;
+  width: 90%;
   height: 80px;
   position: relative;
   background-color: yellow;
@@ -9,4 +9,8 @@
   width: 80px;
   height: 80px;
   position: absolute;
+}
+
+h1 {
+  text-align: center;
 }
