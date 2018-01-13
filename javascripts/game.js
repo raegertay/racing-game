@@ -4,9 +4,9 @@ document.addEventListener('DOMContentLoaded', function() {
   const player = document.getElementById('player')
   const computer = document.getElementById('computer')
   const accelerateBtn = document.getElementById('accelerate-btn')
-  const playerSpeed = 1.5 // in percentage
-  const computerSpeed = 0.1 // in percentage
-  const computerAccelerationFrequency = 10 // in milliseconds
+  const playerSpeed = 1.6 // in percentage
+  const computerSpeed = 1.1 // in percentage
+  const computerAccelerationFrequency = 100 // in milliseconds
   let gameHasStarted = false
   let intervalId = null
 
