@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const player = document.getElementById('player')
   const computer = document.getElementById('computer')
   const accelerateBtn = document.getElementById('accelerate-btn')
-  const playerSpeed = 5 // in percentage
+  const playerSpeed = 1.5 // in percentage
   const computerSpeed = 0.1 // in percentage
   const computerAccelerationFrequency = 10 // in milliseconds
   let gameHasStarted = false
@@ -46,10 +46,10 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   const displayResult = (message) => {
-    const displayMessage = document.createElement('p')
+    const displayMessage = document.createElement('div')
     displayMessage.id = 'result'
     displayMessage.append(message)
-    document.getElementsByTagName('body')[0].append(displayMessage)
+    document.getElementById('race-area').append(displayMessage)
   }
 
   const gameOver= () => {

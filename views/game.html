@@ -8,17 +8,37 @@
 </head>
 
 <body>
-  <h1>Racing Game</h1>
-  <p>Computer:</p>
-  <div class='racing-track'>
-    <img id='computer' src='../resources/car.svg'>
+  <h1>***Racing Game***</h1>
+
+  <div id='race-area'>
+    <div style='width: 100%;'>
+      <p>Computer:</p>
+      <div class='track'>
+        <div class='racing-track'>
+          <img id='computer' src='../resources/computerCar.svg'>
+        </div>
+        <div class='finishing-track'></div>
+      </div>
+
+      <p style='color: darkred;'>You:</p>
+      <div class='track'>
+        <div class='racing-track'>
+          <img id='player' src='../resources/playerCar.svg'>
+        </div>
+        <div class='finishing-track'></div>
+      </div>
+    </div>
+
   </div>
-  <p>You:</p>
-  <div class='racing-track'>
-    <img id='player' src='../resources/car.svg'>
-  </div>
+
+
+
   <br />
-  <button type='button' id='accelerate-btn'>Accelerate!</button>
-  <button type='button' id='accelerate-btn' onclick='location.reload()'>Restart</button>
+
+  <div style='text-align: center;'>
+    <button type='button' id='accelerate-btn'>Accelerate!</button>
+    <button type='button' id='restart-btn' onclick='location.reload()'>Restart</button>
+  </div>
+
 </body>
 </html>

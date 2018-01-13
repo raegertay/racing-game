@@ -1,16 +1,66 @@
-.racing-track {
-  width: 90%;
-  height: 80px;
-  position: relative;
+body {
+  background-color: #ffe5e9;
+}
+
+h1 {
+  text-align: center;
+  color: darkblue;
+}
+
+#race-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#result {
+  position: absolute;
   background-color: yellow;
+  border-color: black;
+  width: 400px;
+  height: 200px;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
+  border: medium solid green;
+  line-height: 200px;
+}
+
+.track {
+  height: 80px;
+  display: flex;
+}
+
+.racing-track {
+  flex-grow: 10;
+  position: relative;
+  background-image: url('../resources/road.png');
+  background-size: contain;
+}
+
+.finishing-track {
+  flex-grow: 1;
+  height: 80%;
+  background-image: url('../resources/finishingTrack.jpg');
+  background-size: contain;
+  align-self: center;
 }
 
 #player, #computer {
   width: 80px;
   height: 80px;
   position: absolute;
+  bottom: 10%;
 }
 
-h1 {
-  text-align: center;
+button {
+  height: 2rem;
+}
+
+#accelerate-btn {
+  background-color: lightgreen;
+}
+
+#restart-btn {
+  background-color: lightblue;
 }
