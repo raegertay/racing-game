@@ -4,43 +4,57 @@ document.addEventListener('DOMContentLoaded', function() {
   const player = document.getElementById('player')
   const computer = document.getElementById('computer')
   const accelerateBtn = document.getElementById('accelerate-btn')
-  const playerSpeed = 5;
-  const computerSpeed = 5;
+  const playerSpeed = 5 // in percentage
+  const computerSpeed = 0.1 // in percentage
+  const computerAccelerationFrequency = 10 // in milliseconds
   let gameHasStarted = false
-  let intervalId = null;
+  let intervalId = null
 
   accelerateBtn.addEventListener('click', () => {
     if (!gameHasStarted) {
       gameHasStarted = true
       computerStart()
     }
-    let newLeftPercentage = Math.round(player.offsetLeft / racingTrack.offsetWidth * 100) + playerSpeed
-    console.log(`Position of player: ${newLeftPercentage}%`)
+    let newLeftPercentage = calculuateNewPosition(player, playerSpeed)
     player.style.left = `${newLeftPercentage}%`
-    if ((player.offsetLeft + player.offsetWidth) > racingTrack.offsetWidth) {
-      const winMessage = document.createElement('p')
-      winMessage.append('You won!')
-      document.getElementsByTagName('body')[0].append(winMessage)
-      clearInterval(intervalId)
-      accelerateBtn.disabled = true
+    console.log(`Position of player: ${newLeftPercentage}%`)
+    if (hasWon(player)) {
+      displayResult('You won!')
+      gameOver()
     }
   })
 
   const computerStart = () => {
     intervalId = setInterval(() => {
-      let newLeftPercentage = Math.round(computer.offsetLeft / racingTrack.offsetWidth * 100) + computerSpeed
-      console.log(`Position of computer: ${newLeftPercentage}%`)
+      let newLeftPercentage = calculuateNewPosition(computer, computerSpeed)
       computer.style.left = `${newLeftPercentage}%`
-      if ((computer.offsetLeft + computer.offsetWidth) > racingTrack.offsetWidth) {
-        const winMessage = document.createElement('p')
-        winMessage.append('You lost!')
-        document.getElementsByTagName('body')[0].append(winMessage)
-        clearInterval(intervalId)
-        accelerateBtn.disabled = true
+      console.log(`Position of computer: ${newLeftPercentage}%`)
+      if (hasWon(computer)) {
+        displayResult('You lost!')
+        gameOver()
       }
-    }, 200)
+    }, computerAccelerationFrequency)
   }
 
+  // In percentage
+  const calculuateNewPosition = (car, speed) => {
+    return (car.offsetLeft / racingTrack.offsetWidth * 100) + speed
+  }
 
+  const hasWon = (car) => {
+    return (car.offsetLeft + car.offsetWidth) > racingTrack.offsetWidth
+  }
+
+  const displayResult = (message) => {
+    const displayMessage = document.createElement('p')
+    displayMessage.id = 'result'
+    displayMessage.append(message)
+    document.getElementsByTagName('body')[0].append(displayMessage)
+  }
+
+  const gameOver= () => {
+    clearInterval(intervalId)
+    accelerateBtn.disabled = true
+  }
 
 });
