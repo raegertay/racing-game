@@ -36,6 +36,7 @@ h1 {
   position: relative;
   background-image: url('../resources/road.png');
   background-size: contain;
+  transform: skewX(-15deg);
 }
 
 .finishing-track {
@@ -44,6 +45,8 @@ h1 {
   background-image: url('../resources/finishingTrack.jpg');
   background-size: contain;
   align-self: center;
+  transform: skewX(-15deg);
+  z-index: -1;
 }
 
 #player, #computer {
@@ -51,6 +54,7 @@ h1 {
   height: 80px;
   position: absolute;
   bottom: 10%;
+  transform: skewX(15deg);
 }
 
 button, select {

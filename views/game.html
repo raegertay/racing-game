@@ -8,10 +8,10 @@
 </head>
 
 <body>
-  <h1>***Racing Game***</h1>
+  <h1><span style='color: red;'>***</span>Racing Game<span style='color: red;'>***</span></h1>
 
   <div id='race-area'>
-    <div style='width: 100%;'>
+    <div style='width: 95%;'>
       <p>Computer:</p>
       <div class='track'>
         <div class='racing-track'>
@@ -34,6 +34,7 @@
   <br />
 
   <div style='text-align: center;'>
+    <label for='difficulty-selection'>Difficult:</label>
     <select id='difficulty-selection'>
       <option value='easy'>Easy</option>
       <option value='medium' selected>Medium</option>
@@ -42,6 +43,10 @@
     <button type='button' id='accelerate-btn'>Accelerate!</button>
     <button type='button' id='restart-btn'>Restart</button>
   </div>
+
+  <p style='text-align: center'>
+    <i>Instruction: Click the 'Accelerate!' button as fast as you can!</i>
+  </p>
 
 </body>
 </html>

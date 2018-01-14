@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Change game settings here
   const playerSpeed = 1.6 // in percentage
   const computerEasySpeed = 0.5 // in percentage
-  const computerMediumSpeed = 0.8 // in percentage
+  const computerMediumSpeed = 0.9 // in percentage
   const computerHardSpeed = 1.1 // in percentage
   const computerAccelerationFrequency = 100 // in milliseconds
 
