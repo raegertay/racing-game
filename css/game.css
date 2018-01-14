@@ -53,7 +53,7 @@ h1 {
   bottom: 10%;
 }
 
-button {
+button, select {
   height: 2rem;
 }
 

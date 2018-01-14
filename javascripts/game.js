@@ -4,8 +4,12 @@ document.addEventListener('DOMContentLoaded', function() {
   const player = document.getElementById('player')
   const computer = document.getElementById('computer')
   const accelerateBtn = document.getElementById('accelerate-btn')
+  const difficultSelection = document.getElementById('difficulty-selection')
+
   const playerSpeed = 1.6 // in percentage
-  const computerSpeed = 1.1 // in percentage
+  const computerEasySpeed = 0.5 // in percentage
+  const computerMediumSpeed = 0.8 // in percentage
+  const computerHardSpeed = 1.1 // in percentage
   const computerAccelerationFrequency = 100 // in milliseconds
   let gameHasStarted = false
   let intervalId = null
@@ -25,6 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
   })
 
   const computerStart = () => {
+    let computerSpeed = getComputerSpeed()
     intervalId = setInterval(() => {
       let newLeftPercentage = calculuateNewPosition(computer, computerSpeed)
       computer.style.left = `${newLeftPercentage}%`
@@ -52,9 +57,21 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('race-area').append(displayMessage)
   }
 
-  const gameOver= () => {
+  const gameOver = () => {
     clearInterval(intervalId)
     accelerateBtn.disabled = true
+  }
+
+  // Return computer speed based on selected difficulty
+  const getComputerSpeed = () => {
+    switch (difficultSelection.value) {
+      case 'easy':
+        return computerEasySpeed
+      case 'medium':
+        return computerMediumSpeed
+      case 'hard':
+        return computerHardSpeed
+    }
   }
 
 });
